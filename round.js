@@ -1,4 +1,5 @@
 function round(num,digit=0){
+  // 四捨五入
   let fraction = 1;
   if(digit > 0){
     fraction = 10 ** digit;
@@ -8,10 +9,14 @@ function round(num,digit=0){
   }
 
   let result = Math.round(num * fraction) / fraction;
+  if(isNaN(result)){
+    result = false;
+  }
   return result;
 }
 
 function roundup(num,digit=0){
+  // 切り上げ
   let fraction = 1;
   if(digit > 0){
     fraction = 10 ** digit;
@@ -21,10 +26,14 @@ function roundup(num,digit=0){
   }
 
   let result = Math.ceil(num * fraction) / fraction;
+  if(isNaN(result)){
+    result = false;
+  }
   return result;
 }
 
 function rounddown(num,digit=0){
+  // 切り捨て
   let fraction = 1;
   if(digit > 0){
     fraction = 10 ** digit;
@@ -34,5 +43,8 @@ function rounddown(num,digit=0){
   }
 
   let result = Math.floor(num * fraction) / fraction;
+  if(isNaN(result)){
+    result = false;
+  }
   return result;
 }
